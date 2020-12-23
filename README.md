@@ -20,8 +20,8 @@
 
 ## items テーブル
 
-| Column                   | Type       | Options                        |
-| ------------------------ | ---------- | ------------------------------ |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
 | name                | string     | null: false                    |
 | info                | string     | null: false                    |
 | category            | string     | null: false                    |
