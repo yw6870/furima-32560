@@ -46,8 +46,8 @@ describe User, type: :model do
         expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'passwordが数字のみであれば登録できない' do
-        @user.password = 0o00000
-        @user.password_confirmation = 0o00000
+        @user.password = 000000
+        @user.password_confirmation = 000000
         @user.valid?
         expect(@user.errors.full_messages).to include('Password include both letters and numbers')
       end
