@@ -17,13 +17,18 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :scheduled_delivery
 
-  validates :image,                  presence: true
-  validates :name,                   presence: true
-  validates :info,                   presence: true
-  validates :category_id,            presence: true, numericality: { other_than: 1 } 
-  validates :sales_status_id,        presence: true, numericality: { other_than: 1 } 
-  validates :shipping_fee_status_id, presence: true, numericality: { other_than: 1 } 
-  validates :prefecture_id,          presence: true, numericality: { other_than: 1 } 
-  validates :scheduled_delivery_id,  presence: true, numericality: { other_than: 1 } 
-  validates :price,                  presence: true
+  with_options presence: true do
+    validates :image
+    validates :name
+    validates :info
+  end
+  with_options presence: true, numericality: { other_than: 1,message: 'select' }  do
+    validates :category_id
+    validates :sales_status_id
+    validates :shipping_fee_status_id
+    validates :prefecture_id
+    validates :scheduled_delivery_id
+  end
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'out of setting range' }
+  validates :price, numericality: { with: /\A[0-9]+\z/, message: 'half-width number' }
 end
