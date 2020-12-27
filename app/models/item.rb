@@ -22,13 +22,13 @@ class Item < ApplicationRecord
     validates :name
     validates :info
   end
-  with_options presence: true, numericality: { other_than: 1,message: 'select' }  do
+  with_options presence: true, numericality: { other_than: 1, message: 'select' } do
     validates :category_id
     validates :sales_status_id
     validates :shipping_fee_status_id
     validates :prefecture_id
     validates :scheduled_delivery_id
   end
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'out of setting range' }
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9,999,999, message: 'out of setting range' }
   validates :price, numericality: { with: /\A[0-9]+\z/, message: 'half-width number' }
 end
