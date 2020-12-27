@@ -33,8 +33,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Category select')
       end
+      it 'categoryが1（--）の場合は出品できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Category select')
+      end
       it 'sales_statusが選択されていなければ出品できない' do
         @item.sales_status_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Sales status select')
+      end
+      it 'sales_statusが1（--）の場合は出品できない' do
+        @item.sales_status_id = １
         @item.valid?
         expect(@item.errors.full_messages).to include('Sales status select')
       end
@@ -43,13 +53,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping fee status select')
       end
+      it 'shipping_fee_statusが1（--）の場合は出品できない' do
+        @item.shipping_fee_status_id = １
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Shipping fee status select')
+      end
       it 'prefectureが選択されていなければ出品できない' do
         @item.prefecture_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture select')
       end
+      it 'prefectureが1（--）の場合は出品できない' do
+        @item.prefecture_id = １
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Prefecture select')
+      end
       it 'scheduled_deliveryが選択されていなければ出品できない' do
         @item.scheduled_delivery_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Scheduled delivery select')
+      end
+      it 'scheduled_deliveryが1（--）の場合は出品できない' do
+        @item.scheduled_delivery_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Scheduled delivery select')
       end
@@ -77,11 +102,6 @@ RSpec.describe Item, type: :model do
         @item.user = nil
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
-      end
-      it 'categoryが1（--）の場合は出品できない' do
-        @item.category_id = 1
-        @item.valid?
-        expect(@item.errors.full_messages).to include('Category select')
       end
     end
   end
