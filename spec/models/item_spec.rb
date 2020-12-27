@@ -44,7 +44,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Sales status select')
       end
       it 'sales_statusが1（--）の場合は出品できない' do
-        @item.sales_status_id = １
+        @item.sales_status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Sales status select')
       end
@@ -54,7 +54,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Shipping fee status select')
       end
       it 'shipping_fee_statusが1（--）の場合は出品できない' do
-        @item.shipping_fee_status_id = １
+        @item.shipping_fee_status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping fee status select')
       end
@@ -64,7 +64,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Prefecture select')
       end
       it 'prefectureが1（--）の場合は出品できない' do
-        @item.prefecture_id = １
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture select')
       end
