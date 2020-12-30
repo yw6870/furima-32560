@@ -23,16 +23,16 @@ class PurchaseHistoriesController < ApplicationController
   end
 
   def user_charge_params
-    params.require(:user_charge).permit(:postal_code, :prefecture_id, :city, :addresses, :building, :phone_number).merge(token: params[:token], user_id: current_user.id, item_id: params[:item_id])
+    params.require(:user_charge).permit(:postal_code, :prefecture_id, :city, :addresses, :building, :phone_number).merge(token: params[:token], user_id: current_user.id, item_id: params[:item_id]
+    )
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
       card: user_charge_params[:token],
       currency: 'jpy'
     )
   end
-
 end
