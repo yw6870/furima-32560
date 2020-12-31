@@ -1,5 +1,7 @@
 class PurchaseHistoriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item
+  before_action :contributor_confirmation
 
   def index
     @user_charge = UserCharge.new
@@ -34,5 +36,9 @@ class PurchaseHistoriesController < ApplicationController
       card: user_charge_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def contributor_confirmation
+    redirect_to root_path if current_user == @item.user
   end
 end
