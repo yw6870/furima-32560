@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @purchase_history = PurchaseHistory.all
+    @exist = PurchaseHistory.where(item_id: @item.id).exists?
   end
 
   def edit
