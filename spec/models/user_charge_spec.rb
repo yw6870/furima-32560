@@ -5,10 +5,24 @@ RSpec.describe UserCharge, type: :model do
     @user_charge = FactoryBot.build(:user_charge)
   end
 
-  it 'token,postal_code,prefecture_id,city,addresses,phone_numberがあれば保存ができること' do
+  it 'token,postal_code,prefecture_id,city,addresses,building,phone_numberがあれば保存ができること' do
+    expect(@user_charge).to be_valid
+  end
+  it 'buildingが空でも保存ができる' do
+    @user_charge.building = nil
     expect(@user_charge).to be_valid
   end
 
+  it 'user_idが空では保存ができないこと' do
+    @user_charge.user_id = nil
+    @user_charge.valid?
+    expect(@user_charge.errors.full_messages).to include("User can't be blank")
+  end
+  it 'item_idが空では保存ができないこと' do
+    @user_charge.item_id = nil
+    @user_charge.valid?
+    expect(@user_charge.errors.full_messages).to include("Item can't be blank")
+  end
   it 'postal_codeが空では保存ができないこと' do
     @user_charge.postal_code = nil
     @user_charge.valid?

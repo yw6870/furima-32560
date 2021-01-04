@@ -39,6 +39,6 @@ class PurchaseHistoriesController < ApplicationController
   end
 
   def contributor_confirmation
-    redirect_to root_path if current_user == @item.user
+    redirect_to root_path if current_user == @item.user || PurchaseHistory.where(item_id: @item.id).exists?
   end
 end
