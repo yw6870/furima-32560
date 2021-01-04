@@ -9,6 +9,16 @@ RSpec.describe UserCharge, type: :model do
     expect(@user_charge).to be_valid
   end
 
+  it 'postal_codeが空では保存ができないこと' do
+    @user_charge.postal_code = nil
+    @user_charge.valid?
+    expect(@user_charge.errors.full_messages).to include("Postal code can't be blank")
+  end
+  it 'postal_codeに-（ハイフン）がなければ保存ができないこと' do
+    @user_charge.postal_code = 1234567
+    @user_charge.valid?
+    expect(@user_charge.errors.full_messages).to include("Postal code input correctly")
+  end
   it 'tokenが空では保存ができないこと' do
     @user_charge.token = nil
     @user_charge.valid?
@@ -41,6 +51,16 @@ RSpec.describe UserCharge, type: :model do
   end
   it 'phone_numberが半角数字意外（全角）では保存ができないこと' do
     @user_charge.phone_number = '０９０１２３４５６７８'
+    @user_charge.valid?
+    expect(@user_charge.errors.full_messages).to include('Phone number input only number')
+  end
+  it 'phone_numberに-（ハイフン）が入っていれば保存ができないこと' do
+    @user_charge.phone_number = '090-1234-5678'
+    @user_charge.valid?
+    expect(@user_charge.errors.full_messages).to include('Phone number input only number')
+  end
+  it 'phone_numberに数字が12桁以上あれば保存ができないこと' do
+    @user_charge.phone_number = 123456789123
     @user_charge.valid?
     expect(@user_charge.errors.full_messages).to include('Phone number input only number')
   end
