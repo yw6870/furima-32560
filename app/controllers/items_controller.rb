@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    redirect_to root_path if PurchaseHistory.where(item_id: @item.id).exists?
   end
 
   def update
