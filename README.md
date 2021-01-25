@@ -16,10 +16,10 @@
 - GitHub:https://github.com/yw6870/furima-32560
 - デプロイ先:http://52.198.243.132/
 - テストアカウント:
-出品者Email:test@test
-出品者Password:aaaaa1
-購入者Email:a@a
-購入者Password:aaaaa1
+- 出品者Email:test@test
+- 出品者Password:aaaaa1
+- 購入者Email:a@a
+- 購入者Password:aaaaa1
 
 # DEMO
 
