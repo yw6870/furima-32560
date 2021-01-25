@@ -6,16 +6,20 @@
 
 # DEMO
 
-## トップ画面
+### トップ画面
+
 ![スクリーンショット 2021-01-25 15 00 45](https://user-images.githubusercontent.com/68420090/105667740-38699300-5f1f-11eb-9c1e-8c394e71c712.png)
 
-## ユーザー登録画面
+### ユーザー登録画面
+
 ![スクリーンショット 2021-01-25 14 54 12](https://user-images.githubusercontent.com/68420090/105667685-1a9c2e00-5f1f-11eb-92b3-902e1e27d972.png)
 
-## 商品出品画面
+### 商品出品画面
+
 ![スクリーンショット 2021-01-25 15 01 49](https://user-images.githubusercontent.com/68420090/105667777-491a0900-5f1f-11eb-8c40-9c8ed40df551.png)
 
-## 商品購入画面
+### 商品購入画面
+
 ![スクリーンショット 2021-01-25 15 03 50](https://user-images.githubusercontent.com/68420090/105667802-57682500-5f1f-11eb-8e46-1c522c305033.png)
 
 # 実装予定の内容
