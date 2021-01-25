@@ -18,7 +18,6 @@
 - テストアカウント:
 出品者Email:test@test
 出品者Password:aaaaa1
-
 購入者Email:a@a
 購入者Password:aaaaa1
 
